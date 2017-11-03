@@ -1,7 +1,12 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
 import {environment} from '@environments/environment';
-import 'rxjs/Rx';
+// TODO: import in less verbose way
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/first';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/finally';
 import {
   Http,
   RequestOptionsArgs,
@@ -28,7 +33,7 @@ export class HttpService extends Http {
     this.baseUrl = environment.production ?
     `http://${window.location.hostname}:${window.location.port}`
     : `${environment.host}:${environment.port}`;
-    
+
     this.requestCount = 0;
   }
 
