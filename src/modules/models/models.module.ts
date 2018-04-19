@@ -11,7 +11,12 @@ import {
     ModelsWrapperComponent,
     ModelDetailsComponent,
     ModelVersionDetailsComponent
-} from './_index';
+} from '@models/components/_index';
+import { EffectsModule } from '@ngrx/effects';
+import { ModelEffects } from '@models/effects/_index';
+import { ModelsService } from '@models/services/_index';
+import { StoreModule } from '@ngrx/store';
+import * as Reducers from '@models/reducers/_index';
 
 
 
@@ -24,12 +29,16 @@ import {
         MdlModule,
         MdlSelectModule,
         FormsModule,
+        StoreModule.forFeature('models', Reducers),
+        EffectsModule.forFeature([ModelEffects])
     ],
     declarations: [
         ModelsWrapperComponent,
         ModelDetailsComponent,
         ModelVersionDetailsComponent
     ],
-    exports: []
+    providers: [
+        ModelsService
+    ]
 })
 export class ModelsModule { }

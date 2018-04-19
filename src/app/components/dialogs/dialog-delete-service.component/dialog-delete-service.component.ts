@@ -3,7 +3,7 @@ import { MdlDialogReference } from '@angular-mdl/core';
 import { Store } from '@ngrx/store';
 
 import { DialogBase } from '@shared/base/_index';
-import * as Actions from '@shared/actions/_index';
+import * as Actions from '@applications/actions/_index';
 import { ApplicationState } from '@shared/models/_index';
 
 export let injectableApplicationId = new InjectionToken<number>('injectableApplicationId');

@@ -1,5 +1,5 @@
-import { Application } from '@shared/models/_index';
-import { ApplicationActions, ApplicationActionTypes } from '@shared/actions/_index';
+import { Application } from '@applications/models/_index';
+import { ApplicationActions, ApplicationActionTypes } from '@applications/actions/_index';
 
 
 

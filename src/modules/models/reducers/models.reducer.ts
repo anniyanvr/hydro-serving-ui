@@ -1,5 +1,5 @@
 import { Model } from '@shared/models/_index';
-import { ModelActions, ModelActionTypes } from '@shared/actions/_index';
+import { ModelActions, ModelActionTypes } from '@models/actions/_index';
 
 
 

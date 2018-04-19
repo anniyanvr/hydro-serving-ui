@@ -8,7 +8,7 @@ import {
     Signature
 } from '@shared/models/_index';
 
-import * as Actions from '@shared/actions/_index';
+import * as Actions from '@models/actions/_index';
 
 
 @Component({
@@ -58,9 +58,9 @@ export class ModelVersionDetailsComponent implements OnInit, OnDestroy {
                 this.build = builds.find(dataStoreItem => {
                     return dataStoreItem.version === Number(modelVersionId) && dataStoreItem.model.id === Number(this.modelId);
                 });
-                if (this.build) {
-                    this.store.dispatch({ type: Actions.GET_MODEL_BUILD_CONTRACTS, payload: this.build.id });
-                }
+                // if (this.build) {
+                //     this.store.dispatch({ type: Actions.GET_MODEL_BUILD_CONTRACTS, payload: this.build.id });
+                // }
             });
 
         this.contractsStoreSub = this.store.select('contracts')

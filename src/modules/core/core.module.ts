@@ -10,15 +10,15 @@ import { NavbarComponent, LoaderComponent } from './_index';
 
 import { CodemirrorModule } from 'ng2-codemirror';
 // import { ClipboardModule } from 'ngx-clipboard';
-import { EffectsModule } from '@ngrx/effects';
+// import { EffectsModule } from '@ngrx/effects';
 
 // Services
 import {
     HttpService,
     LoaderStateService,
     FormsService,
-    ApplicationsService,
-    ModelsService,
+    // ApplicationsService,
+    // ModelsService,
     EnvironmentsService,
     ContractsService,
     RuntimesService,
@@ -26,14 +26,14 @@ import {
 } from '@shared/services/_index';
 
 // Effects
-import {
-    ApplicationsEffects,
-    ModelEffects,
-    RuntimesEffects,
-    ContractsEffects,
-    SourcesEffects,
-    EnvironmentsEffects,
-} from '@shared/effects/_index';
+// import {
+//     ApplicationsEffects,
+//     ModelEffects,
+//     RuntimesEffects,
+//     ContractsEffects,
+//     SourcesEffects,
+//     EnvironmentsEffects,
+// } from '@shared/effects/_index';
 
 // Builders
 import {
@@ -47,19 +47,19 @@ import {
 // Factories
 import { httpServiceFactory } from '@shared/factories/_index';
 
-import { StoreModule } from '@ngrx/store';
+// import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
-import {
-    ModelsReducer,
-    ModelBuildsReducer,
-    ApplicationsReducer,
-    RuntimesReducer,
-    ContractsReducer,
-    SourcesReducer,
-    EnvironmentsReducer,
-    ModelVersionsReducer
-} from '@shared/reducers/_index';
+// import {
+//     // ModelsReducer,
+//     ModelBuildsReducer,
+//     // ApplicationsReducer,
+//     RuntimesReducer,
+//     ContractsReducer,
+//     SourcesReducer,
+//     EnvironmentsReducer,
+//     ModelVersionsReducer
+// } from '@shared/reducers/_index';
 
 
 
@@ -72,27 +72,27 @@ import {
         CodemirrorModule,
         // ClipboardModule,
         HttpModule,
-        StoreModule.forRoot({
-            models: ModelsReducer,
-            applications: ApplicationsReducer,
-            modelBuilds: ModelBuildsReducer,
-            modelVersions: ModelVersionsReducer,
-            runtimes: RuntimesReducer,
-            contracts: ContractsReducer,
-            sources: SourcesReducer,
-            environments: EnvironmentsReducer
-        }),
+        // StoreModule.forRoot({
+        //     models: ModelsReducer,
+        //     applications: ApplicationsReducer,
+        //     modelBuilds: ModelBuildsReducer,
+        //     modelVersions: ModelVersionsReducer,
+        //     runtimes: RuntimesReducer,
+        //     contracts: ContractsReducer,
+        //     sources: SourcesReducer,
+        //     environments: EnvironmentsReducer
+        // }),
         StoreDevtoolsModule.instrument({
             maxAge: 25
         }),
-        EffectsModule.forRoot([
-            ApplicationsEffects,
-            ModelEffects,
-            RuntimesEffects,
-            ContractsEffects,
-            SourcesEffects,
-            EnvironmentsEffects
-        ])
+        // EffectsModule.forRoot([
+        //     ApplicationsEffects,
+        //     ModelEffects,
+        //     RuntimesEffects,
+        //     ContractsEffects,
+        //     SourcesEffects,
+        //     EnvironmentsEffects
+        // ])
     ],
     exports: [
         NavbarComponent,
@@ -115,8 +115,8 @@ import {
         RuntimeBuilder,
         // Services
         FormsService,
-        ApplicationsService,
-        ModelsService,
+        // ApplicationsService,
+        // ModelsService,
         EnvironmentsService,
         ContractsService,
         RuntimesService,

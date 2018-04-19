@@ -6,7 +6,8 @@ import { Store } from '@ngrx/store';
 import { DialogBase } from '@shared/base/_index';
 // import * as Actions from '@shared/actions/_index';
 import { ApplicationState } from '@shared/models/_index';
-import { FormsService, ApplicationsService } from '@shared/services/_index';
+import { FormsService } from '@shared/services/_index';
+import { ApplicationsService } from '@applications/services/_index';
 
 
 

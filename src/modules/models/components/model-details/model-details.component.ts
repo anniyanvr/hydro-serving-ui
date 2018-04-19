@@ -11,7 +11,7 @@ import {
     injectableModelOptions
 } from '@components/dialogs/_index';
 
-import * as Actions from '@shared/actions/_index';
+import * as Actions from '@models/actions/_index';
 
 
 

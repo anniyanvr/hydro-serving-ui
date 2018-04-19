@@ -1,12 +1,12 @@
 import { Component, OnInit, InjectionToken, Inject, OnDestroy } from '@angular/core';
 import { MdlDialogReference, MdlSnackbarService } from '@angular-mdl/core';
 import { FormGroup, FormBuilder, FormArray, Validators } from '@angular/forms';
-import { ModelsService } from '@shared/services/_index';
+import { ModelsService } from '@models/services/_index';
 import { DialogBase } from '@shared/base/_index';
 
 import { Store } from '@ngrx/store';
 import { ApplicationState } from '@shared/models/_index';
-import * as Actions from '@shared/actions/_index';
+import * as Actions from '@models/actions/_index';
 import 'rxjs/add/operator/mergeMap';
 
 import { Subscription } from 'rxjs/Subscription';

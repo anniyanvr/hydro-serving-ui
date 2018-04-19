@@ -22,10 +22,7 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.store.dispatch(new Actions.GetModelsAction);
-        this.store.dispatch(new Actions.GetApplicationsAction);
         this.store.dispatch({ type: Actions.GET_RUNTIMES });
         this.store.dispatch({ type: Actions.GET_ENVIRONMENTS });
-        this.store.dispatch(new Actions.GetModelVersionsAction);
     }
 }

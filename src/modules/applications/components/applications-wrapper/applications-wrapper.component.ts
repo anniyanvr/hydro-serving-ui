@@ -3,6 +3,8 @@ import { Store } from '@ngrx/store';
 
 import { ApplicationState, Application } from '@shared/models/_index';
 
+import * as Actions from '@applications/actions/_index';
+
 
 
 @Component({
@@ -18,6 +20,7 @@ export class ApplicationsWrapperComponent {
     constructor(
         private store: Store<ApplicationState>
     ) {
+        this.store.dispatch(new Actions.GetApplicationsAction);
         this.applications = this.store.select('applications');
     }
 

@@ -17,6 +17,8 @@ import { ApplicationsModule } from '@modules/applications/applications.module';
 
 // Dialogs
 import * as Dialog from '@components/dialogs/_index';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 
 
 
@@ -42,6 +44,8 @@ import * as Dialog from '@components/dialogs/_index';
         ReactiveFormsModule,
         MomentModule,
         SharedModule,
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot([]),
     ],
     entryComponents: [
         Dialog.DialogModelBuildComponent,

@@ -7,12 +7,15 @@ import { FormsModule } from '@angular/forms';
 
 import { ChartsModule } from 'ng2-charts';
 
-
-
 import {
     ApplicationsWrapperComponent,
     ApplicationsItemDetailComponent
-} from './_index';
+} from '@applications/components/_index';
+import { EffectsModule } from '@ngrx/effects';
+import { ApplicationsService } from '@applications/services/_index';
+import { ApplicationsEffects } from '@applications/effects/_index';
+import { StoreModule } from '@ngrx/store';
+import { ApplicationsReducer } from '@applications/reducers/_index';
 
 @NgModule({
     imports: [
@@ -21,11 +24,16 @@ import {
         MdlModule,
         ApplicationsRoutingModule,
         FormsModule,
-        ChartsModule
+        ChartsModule,
+        StoreModule.forFeature('applications', ApplicationsReducer),
+        EffectsModule.forFeature([ApplicationsEffects])
     ],
     declarations: [
         ApplicationsWrapperComponent,
         ApplicationsItemDetailComponent
+    ],
+    providers: [
+        ApplicationsService
     ]
 })
 export class ApplicationsModule { }

@@ -5,7 +5,7 @@ import {
     ModelsWrapperComponent,
     ModelDetailsComponent,
     ModelVersionDetailsComponent
-} from './_index';
+} from '@models/components/_index';
 
 
 @NgModule({

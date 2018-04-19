@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { ApplicationState, Model } from '@shared/models/_index';
-
+import * as Actions from '@models/actions/_index';
 
 
 @Component({
@@ -20,6 +20,8 @@ export class ModelsWrapperComponent implements OnInit {
     ) { }
 
     ngOnInit() {
+        this.store.dispatch(new Actions.GetModelsAction);
+        this.store.dispatch(new Actions.GetModelVersionsAction);
         this.models = this.store.select('models');
     }
 

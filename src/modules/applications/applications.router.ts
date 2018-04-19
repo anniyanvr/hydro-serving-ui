@@ -4,11 +4,11 @@ import { RouterModule } from '@angular/router';
 import {
     ApplicationsWrapperComponent,
     ApplicationsItemDetailComponent
-} from './_index';
+} from '@applications/components/_index';
 
 @NgModule({
     imports: [
-    RouterModule.forChild([
+        RouterModule.forChild([
             {
                 path: 'applications',
                 component: ApplicationsWrapperComponent,
