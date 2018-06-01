@@ -46,11 +46,11 @@ export class ModelVersionDetailsComponent implements OnInit, OnDestroy {
                 const modelVersionId = Number(params['modelVersionId']);
                 return modelVersionId;
             })
-            .subscribe(modelVersionId => {
+            .subscribe(() => {
                 if (this.modelsStoreSelectionSub) {
                     this.modelsStoreSelectionSub.unsubscribe();
                 }
-                this.loadInitialData(modelVersionId);
+                this.loadInitialData();
             });
     }
 
@@ -66,15 +66,9 @@ export class ModelVersionDetailsComponent implements OnInit, OnDestroy {
         }
     }
 
-    private loadInitialData(modelVersionId: number) {
+    private loadInitialData() {
         this.store.dispatch(new GetModelBuildsAction(this.modelId));
         this.store.dispatch(new Actions.GetSignaturesAction({ type: 'model-version', id: this.modelId }));
-        console.log(modelVersionId);
-        // .subscribe(builds => {
-        //     this.build = builds.find(dataStoreItem => {
-        //         return dataStoreItem.version === modelVersionId && dataStoreItem.model.id === this.modelId;
-        //     });
-        // });
     }
 
 }
