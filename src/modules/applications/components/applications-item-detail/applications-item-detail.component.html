@@ -60,9 +60,12 @@
             </thead>
             <tbody>
                 <tr *ngFor="let item of stage.services" class='hydro-table-body__row'>
-                    <td class="hydro-table-body__cell">
-                        <div class='cs-text-size-18 cs-text-bold cs-text-overflow-ellipsis cs-text-center'>
+                    <td class="hydro-table-body__cell" [ngClass]="{'isNewVersionAvailable': checkNewVersion(item.serviceDescription.modelName)}">
+                        <div style="display: flex" class='cs-text-size-18 cs-text-bold cs-text-overflow-ellipsis cs-text-center'>
                             {{ item.serviceDescription.modelName ? item.serviceDescription.modelName : item.serviceDescription.modelVersionId }}
+                            <svg class="icon newVersionButton" (click)="editApplication(application$)">
+                                <use xlink:href="#icon-warning" />
+                            </svg>
                         </div>
                     </td>
                     <td class="hydro-table-body__cell">
@@ -80,14 +83,13 @@
                     </td>
                     <td class="hydro-table-body__cell">
                         <div class='cs-text-size-24 cs-text-bold cs-text-overflow-ellipsis cs-text-center'>
-                            <div [ngClass]="healthStatuses['app' + (application$ | async)?.id + 'stage' + i + '_' + item.serviceDescription.modelVersionId]" class="health-status"></div>
+                            <div [ngClass]="healthStatuses['app' + (application$ | async)?.id + 'stage' + i + '_' + item.serviceDescription.modelVersionId]"
+                                class="health-status"></div>
                         </div>
-                    </td>    
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
-
-    <!-- <div #chart></div> -->
 
 </div>

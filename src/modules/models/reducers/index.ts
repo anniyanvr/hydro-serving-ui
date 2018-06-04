@@ -66,3 +66,12 @@ export const getSelectedBuild = createSelector(
     fromRoot.getRouterState,
     (builds, router) => router.state && builds.find(build => build.version === Number(router.state.params.modelVersionId))
 )
+
+export const getModel = (modelName: string) => createSelector(
+    getAllModels,
+    (models) => models.find(model => model.name === modelName)
+)
+
+// export const getModel = (modelName: string) => {
+//     this.getAllModels modelName
+// }

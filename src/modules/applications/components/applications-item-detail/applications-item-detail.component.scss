@@ -27,3 +27,16 @@
 .bad {
     background-color: red;
 }
+
+.newVersionButton {
+    display: none;
+    width: 22px;
+    height: 22px;
+    margin-left: 8px;
+    fill: #ffc107;
+    cursor: pointer;
+    .isNewVersionAvailable & {
+        display: block;
+        margin-top: -3px;
+    }
+}

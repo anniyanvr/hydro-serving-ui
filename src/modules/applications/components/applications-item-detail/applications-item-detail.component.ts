@@ -6,12 +6,13 @@ import { MdlDialogService } from '@angular-mdl/core';
 // import * as Highcharts from 'highcharts';
 
 import { Store } from '@ngrx/store';
-import { Application } from '@shared/models/_index';
+import { Application, Model } from '@shared/models/_index';
 import { HydroServingState } from '@core/reducers';
 // import { InfluxDBService } from '@core/services';
 // import { environment } from '@environments/environment';
 
 import * as fromApplications from '@applications/reducers';
+import * as fromModels from '@models/reducers';
 
 import {
     DialogUpdateServiceComponent,
@@ -29,14 +30,14 @@ import { InfluxDBService } from '@core/services';
     templateUrl: './applications-item-detail.component.html',
     styleUrls: ['./applications-item-detail.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ApplicationsItemDetailComponent {
     public application: Application;
 
     public application$: Observable<Application>;
+    public models: Model[];
 
-    public healthStatuses: {[s: string]: string} = {};
+    public healthStatuses: { [s: string]: string } = {};
     private intervalId: number;
 
     constructor(
@@ -45,6 +46,9 @@ export class ApplicationsItemDetailComponent {
         private influxdbService: InfluxDBService
     ) {
         this.application$ = this.store.select(fromApplications.getSelectedApplication);
+        this.store.select(fromModels.getAllModels)
+            .filter(models => models.length > 0)
+            .subscribe(models => this.models = models)
     }
 
     // TODO: remove me please
@@ -79,6 +83,19 @@ export class ApplicationsItemDetailComponent {
 
     ngOnDestroy() {
         clearInterval(this.intervalId);
+    }
+
+    public checkNewVersion(model) {
+        const modelData = model.match(/\w+/gm);
+        const modelName = modelData[0];
+        const modelVersion = modelData[1];
+        if (this.models) {
+            const modell = this.models.find(model => model.name === modelName);
+            if (modell.lastModelBuild.version > modelVersion) {
+                return true;
+            }
+            return false;
+        }
     }
 
     public testApplication() {
